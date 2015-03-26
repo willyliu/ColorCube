@@ -51,8 +51,8 @@
     _tableView.delegate = self;
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:_tableView];
-    
-    _segmented = [[UISegmentedControl alloc] initWithItems:@[@"Bright", @"Bright -white", @"Bright -blue"]];
+	
+	_segmented = [[UISegmentedControl alloc] initWithItems:@[@"Dark", @"Dark avoid black", @"Dark avoid blue"]];
     [_segmented addTarget:self action:@selector(segmentedChanged:) forControlEvents:UIControlEventValueChanged];
     _segmented.selectedSegmentIndex = 0;
     [self.view addSubview:_segmented];
@@ -65,6 +65,9 @@
     _colorCube = [[CCColorCube alloc] init];
     
     NSArray *imgNames = @[
+						  @"hebe.png",
+						  @"people_Default.png",
+						  @"joe.jpeg",
                           @"schnee.jpg",
                           @"berlin.jpg",
                           @"markt.jpg",
@@ -146,27 +149,36 @@
         NSMutableArray *newColorsArray = [NSMutableArray array];
         
         // White (need to create with RGB components. [UIColor whiteColor] returns two component color (gray intensity & alpha)).
-        UIColor *rgbWhite = [UIColor colorWithRed:1 green:1 blue:1 alpha:1];
+        UIColor *rgbBlack = [UIColor colorWithRed:0	green:0 blue:0 alpha:1];
         UIColor *rgbBlue  = [UIColor colorWithRed:0.3 green:0.3 blue:1 alpha:1];
         
         for (UIImage *image in _images) {
             NSArray *extractedColors = nil;
             
-            // Extract colors (try to get four distinct)
-            switch (mode) {
-                case 0:
-                    extractedColors = [_colorCube extractBrightColorsFromImage:image avoidColor:nil count:4];
-                    break;
-                case 1:
-                    extractedColors = [_colorCube extractBrightColorsFromImage:image avoidColor:rgbWhite count:4];
-                    break;
-                case 2:
-                    extractedColors = [_colorCube extractBrightColorsFromImage:image avoidColor:rgbBlue count:4];
-                    break;
-            }
-            
+			// Extract colors (try to get four distinct)
+			switch (mode) {
+				case 0:
+					extractedColors = [_colorCube extractDarkColorsFromImage:image avoidColor:nil count:4];
+					break;
+				case 1:
+					extractedColors = [_colorCube extractDarkColorsFromImage:image avoidColor:rgbBlack count:4];
+					break;
+				case 2:
+					extractedColors = [_colorCube extractDarkColorsFromImage:image avoidColor:rgbBlue count:4];
+					break;
+			}
+			
+			// applies alpha onto extracted colors
+			NSMutableArray *appliedAlphaColors = [NSMutableArray array];
+			for (UIColor *color in extractedColors) {
+				UIColor *appliedAlphaColor = [color colorWithAlphaComponent:0.7];
+				[appliedAlphaColors addObject:appliedAlphaColor];
+			}
+			if (!appliedAlphaColors.count) {
+				[appliedAlphaColors addObject:[rgbBlack colorWithAlphaComponent:0.7]];
+			}
             // Create object with definitly four colors
-            CCImageColors *imageColors = [[CCImageColors alloc] initWithExtractedColors:extractedColors];
+            CCImageColors *imageColors = [[CCImageColors alloc] initWithExtractedColors:appliedAlphaColors];
             // Add to array of new colors
             [newColorsArray addObject:imageColors];
         }

@@ -29,6 +29,7 @@
 @property (strong, nonatomic) UIView *colorView4;
 
 @property (strong, nonatomic) UIImageView *bigImageView;
+@property (strong, nonatomic) UIImageView *maskedImageView;
 
 @end
 
@@ -38,21 +39,24 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        _colorView1 = [[UIView alloc] initWithFrame:CGRectZero];
-        _colorView2 = [[UIView alloc] initWithFrame:CGRectZero];
-        _colorView3 = [[UIView alloc] initWithFrame:CGRectZero];
-        _colorView4 = [[UIView alloc] initWithFrame:CGRectZero];
-        
-        _bigImageView = [[UIImageView alloc] initWithFrame:CGRectZero];
-        _bigImageView.contentMode = UIViewContentModeScaleToFill;
-        
-        [self.contentView addSubview:_colorView1];
-        [self.contentView addSubview:_colorView2];
-        [self.contentView addSubview:_colorView3];
-        [self.contentView addSubview:_colorView4];
-        [self.contentView addSubview:_bigImageView];
-        
-        self.selectionStyle = UITableViewCellSelectionStyleNone;
+		_colorView1 = [[UIView alloc] initWithFrame:CGRectZero];
+		_colorView2 = [[UIView alloc] initWithFrame:CGRectZero];
+		_colorView3 = [[UIView alloc] initWithFrame:CGRectZero];
+		_colorView4 = [[UIView alloc] initWithFrame:CGRectZero];
+		
+		_bigImageView = [[UIImageView alloc] initWithFrame:CGRectZero];
+		_bigImageView.contentMode = UIViewContentModeScaleToFill;
+		
+		_maskedImageView = [[UIImageView alloc] initWithFrame:CGRectZero];
+		[_maskedImageView addSubview:_colorView1];
+		[_maskedImageView addSubview:_colorView2];
+		[_maskedImageView addSubview:_colorView3];
+		[_maskedImageView addSubview:_colorView4];
+		
+		[self.contentView addSubview:_maskedImageView];
+		[self.contentView addSubview:_bigImageView];
+		
+		self.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     return self;
 }
@@ -71,11 +75,12 @@
 
 - (void)layoutSubviews
 {
-    _bigImageView.frame = CGRectMake(0, 0, 160, 160);
-    _colorView1.frame = CGRectMake(160, 0, 80, 80);
-    _colorView2.frame = CGRectMake(160, 80, 80, 80);
-    _colorView3.frame = CGRectMake(160+80, 0, 80, 80);
-    _colorView4.frame = CGRectMake(160+80, 80, 80, 80);
+	_bigImageView.frame = CGRectMake(0, 0, 160, 160);
+	_maskedImageView.frame = CGRectMake(160, 0, 160, 160);
+	_colorView1.frame = CGRectMake(0, 0, 80, 80);
+	_colorView2.frame = CGRectMake(0, 80, 80, 80);
+	_colorView3.frame = CGRectMake(0+80, 0, 80, 80);
+	_colorView4.frame = CGRectMake(0+80, 80, 80, 80);
 }
 
 - (void)fillWithColors:(CCImageColors *)colors
@@ -89,6 +94,7 @@
 - (void)fillWithImage:(UIImage*)image
 {
     _bigImageView.image = image;
+	_maskedImageView.image = image;	
 }
 
 @end

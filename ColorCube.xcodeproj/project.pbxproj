@@ -34,6 +34,9 @@
 		7F98C65C192504D3009C124F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F98C63E192504D3009C124F /* UIKit.framework */; };
 		7F98C664192504D3009C124F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7F98C662192504D3009C124F /* InfoPlist.strings */; };
 		7F98C666192504D3009C124F /* ColorCubeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F98C665192504D3009C124F /* ColorCubeTests.m */; };
+		8B4F4F0E1AC4138700BDCC96 /* hebe.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B4F4F0B1AC4138700BDCC96 /* hebe.png */; };
+		8B4F4F0F1AC4138700BDCC96 /* joe.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 8B4F4F0C1AC4138700BDCC96 /* joe.jpeg */; };
+		8B4F4F101AC4138700BDCC96 /* people_Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B4F4F0D1AC4138700BDCC96 /* people_Default.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +86,9 @@
 		7F98C661192504D3009C124F /* ColorCubeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ColorCubeTests-Info.plist"; sourceTree = "<group>"; };
 		7F98C663192504D3009C124F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7F98C665192504D3009C124F /* ColorCubeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ColorCubeTests.m; sourceTree = "<group>"; };
+		8B4F4F0B1AC4138700BDCC96 /* hebe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hebe.png; sourceTree = "<group>"; };
+		8B4F4F0C1AC4138700BDCC96 /* joe.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = joe.jpeg; sourceTree = "<group>"; };
+		8B4F4F0D1AC4138700BDCC96 /* people_Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = people_Default.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +128,9 @@
 				7F46E8E11925F21C003C595F /* glotze.jpg */,
 				7F46E8E21925F21C003C595F /* club.jpg */,
 				7F46E8E31925F21C003C595F /* berlin.jpg */,
+				8B4F4F0B1AC4138700BDCC96 /* hebe.png */,
+				8B4F4F0C1AC4138700BDCC96 /* joe.jpeg */,
+				8B4F4F0D1AC4138700BDCC96 /* people_Default.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -306,11 +315,14 @@
 				7F46E8EB1925F21C003C595F /* glotze.jpg in Resources */,
 				7F46E8E91925F21C003C595F /* melone.jpg in Resources */,
 				7F46E8E71925F21C003C595F /* schnee.jpg in Resources */,
+				8B4F4F0F1AC4138700BDCC96 /* joe.jpeg in Resources */,
 				7F46E8EC1925F21C003C595F /* club.jpg in Resources */,
 				7F98C653192504D3009C124F /* Images.xcassets in Resources */,
 				7F46E8E41925F21C003C595F /* streetart.jpg in Resources */,
 				7F46E8E81925F21C003C595F /* museum.jpg in Resources */,
+				8B4F4F101AC4138700BDCC96 /* people_Default.png in Resources */,
 				7F46E8E61925F21C003C595F /* strand.jpg in Resources */,
+				8B4F4F0E1AC4138700BDCC96 /* hebe.png in Resources */,
 				7F98C645192504D3009C124F /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
